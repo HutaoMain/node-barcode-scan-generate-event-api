@@ -1,0 +1,1 @@
+# node-barcode-scan-generate-event-api
