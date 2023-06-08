@@ -35,7 +35,9 @@ app.use("/api/user", UserRoute);
 app.use("/api/event", EventRoute);
 app.use("/api/attendee", AttendeeRoute);
 
-app.listen(5000, () => {
+const port = 5000;
+
+app.listen(process.env.PORT || port, () => {
   connect();
-  console.log("server is listening to port 5000");
+  console.log(`server is listening to port ${port}`);
 });
