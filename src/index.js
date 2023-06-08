@@ -4,6 +4,8 @@ const dotEnv = require("dotenv");
 const cors = require("cors");
 
 const UserRoute = require("./routes/UserRoute");
+const EventRoute = require("./routes/EventRoute");
+const AttendeeRoute = require("./routes/AttendeeRoute");
 
 dotEnv.config();
 
@@ -24,6 +26,8 @@ const connect = async () => {
 };
 
 app.use("/api/user", UserRoute);
+app.use("/api/event", EventRoute);
+app.use("/api/attendee", AttendeeRoute);
 
 app.listen(5000, () => {
   connect();

@@ -8,6 +8,7 @@ const registerUser = async (req, res) => {
       firstName,
       middleName,
       course,
+      idNumber,
       yearLevel,
       email,
       password,
@@ -17,6 +18,7 @@ const registerUser = async (req, res) => {
       !lastName ||
       !firstName ||
       !middleName ||
+      !idNumber ||
       !course ||
       !yearLevel ||
       !email ||
@@ -36,6 +38,7 @@ const registerUser = async (req, res) => {
       lastName,
       firstName,
       middleName,
+      idNumber,
       course,
       yearLevel,
       email,
@@ -76,4 +79,13 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const getSpecificUserByEmail = async (req, res) => {
+  try {
+    const user = await UserModel.findOne({ email: req.params.email });
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { registerUser, loginUser, getSpecificUserByEmail };

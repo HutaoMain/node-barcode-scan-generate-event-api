@@ -14,6 +14,10 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    IdNumber: {
+      type: String,
+      required: true,
+    },
     course: {
       type: String,
       required: true,
@@ -25,6 +29,10 @@ const UserSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+    },
+    role: {
+      type: String,
+      default: "student",
     },
     password: {
       type: String,
