@@ -12,7 +12,13 @@ dotEnv.config();
 const app = express();
 app.use(express.json());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://127.0.0.1:5173", process.env.CLIENT_URL],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 
 //mongoose connection here
 mongoose.set("strictQuery", false);
