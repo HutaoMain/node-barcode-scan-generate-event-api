@@ -19,4 +19,17 @@ const getAttendeeList = async (req, res) => {
   }
 };
 
-module.exports = { createAttendees, getAttendeeList };
+const updateAttendee = async (req, res) => {
+  try {
+    const attendees = await AttendeesModel.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.status(200).json(attendees);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { createAttendees, getAttendeeList, updateAttendee };
