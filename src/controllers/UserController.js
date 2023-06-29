@@ -88,4 +88,22 @@ const getSpecificUserByEmail = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser, getSpecificUserByEmail };
+// const getUserThenUpdatePassword = async (req, res) => {
+//   try {
+//     const user = await UserModel.findByIdAndUpdate(
+//       req.params.email,
+//       { $set: req.body.password },
+//       { new: true }
+//     );
+//     res.status(200).json(user);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+module.exports = {
+  registerUser,
+  loginUser,
+  getSpecificUserByEmail,
+  // getUserThenUpdatePassword,
+};

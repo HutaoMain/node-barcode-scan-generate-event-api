@@ -19,6 +19,15 @@ const getAttendeeList = async (req, res) => {
   }
 };
 
+const getAttendeeById = async (req, res) => {
+  try {
+    const attendees = await AttendeesModel.findById(req.params.id);
+    res.status(200).json(attendees);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const updateAttendee = async (req, res) => {
   try {
     const attendees = await AttendeesModel.findByIdAndUpdate(
@@ -32,4 +41,9 @@ const updateAttendee = async (req, res) => {
   }
 };
 
-module.exports = { createAttendees, getAttendeeList, updateAttendee };
+module.exports = {
+  createAttendees,
+  getAttendeeList,
+  updateAttendee,
+  getAttendeeById,
+};

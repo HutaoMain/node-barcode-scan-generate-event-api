@@ -56,6 +56,12 @@ const AttendeesSchema = new mongoose.Schema(
       type: String,
       default: "pre-registered",
     },
+    timeIn: {
+      type: String,
+    },
+    timeOut: {
+      type: String,
+    },
   },
   {
     timestamps: true,

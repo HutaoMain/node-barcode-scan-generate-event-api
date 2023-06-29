@@ -12,7 +12,6 @@ const UserSchema = new mongoose.Schema(
     },
     middleName: {
       type: String,
-      required: true,
     },
     idNumber: {
       type: String,
